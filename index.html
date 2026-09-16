@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Houssem Location Voiture</title>
+    <style>
+      /* شاشة انتظار متحركة تظهر فورًا (HTML/CSS خالص، بدون انتظار تحميل
+         React) بدل الشاشة البيضاء الفارغة أثناء تحميل الموقع. تُستبدل
+         تلقائيًا بمحتوى الموقع الحقيقي بمجرد جاهزيته. */
+      html, body { background: #0b0b0b; margin: 0; }
+      #root {
+        min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(ellipse at 50% 40%, #171717, #0b0b0b 70%);
+        overflow: hidden;
+      }
+      .boot-splash { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+      .boot-ring {
+        width: 64px; height: 64px; border-radius: 50%;
+        border: 3px solid rgba(154,163,172,0.18);
+        border-top-color: #e8c874; border-right-color: #33c36f;
+        animation: bootSpin 0.9s linear infinite;
+      }
+      .boot-beam {
+        position: absolute; width: 220px; height: 220px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(232,200,116,0.16), transparent 70%);
+        animation: bootPulse 1.8s ease-in-out infinite;
+      }
+      .boot-text {
+        font-family: -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+        color: #d8d3c8; font-size: 0.95rem; letter-spacing: 0.5px;
+        display: flex; align-items: center; gap: 6px;
+      }
+      .boot-dot { animation: bootDots 1.2s ease-in-out infinite; opacity: 0.2; }
+      .boot-dot:nth-child(2) { animation-delay: 0.15s; }
+      .boot-dot:nth-child(3) { animation-delay: 0.3s; }
+      @keyframes bootSpin { to { transform: rotate(360deg); } }
+      @keyframes bootPulse { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 0.9; transform: scale(1.08); } }
+      @keyframes bootDots { 0%, 100% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="boot-splash" role="status" aria-label="جارٍ التحميل">
+        <div style="position:relative; display:flex; align-items:center; justify-content:center;">
+          <div class="boot-beam"></div>
+          <div class="boot-ring"></div>
+        </div>
+        <div class="boot-text">
+          <span>جارٍ تجهيز الموقع</span>
+          <span class="boot-dot">.</span><span class="boot-dot">.</span><span class="boot-dot">.</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
